@@ -59,12 +59,12 @@ M.setup = function(theme)
 		snippet = spec.base,
 
 		keyword = spec.purple,
-		type = spec.orange,
 		constant_keyword = spec.blue,
 		constant_symbol = spec.blue,
 		numeric = spec.teal,
 		language = spec.teal,
 		string = spec.green,
+		type = spec.orange,
 		punctuation_definition = spec.green_sec,
 		comment = { fg = colors.base3 },
 	}
@@ -124,7 +124,7 @@ M.setup = function(theme)
 		TabLine = { fg = spec.gutter_text, bg = spec.gutter_background }, -- tab pages line, not active tab page label
 		TabLineFill = { bg = spec.gutter_background }, -- tab pages line, where there are no labels
 		TabLineSel = { fg = spec.gutter_text_selected, bg = spec.gutter_background_selected }, -- tab pages line, active tab page label
-		Title = { fg = syn.func.fg, bg = syn.func.bg, bold = true }, -- titles for output from ":set all", ":autocmd" etc.
+		Title = { fg = syn.variable.fg }, -- titles for output from ":set all", ":autocmd" etc.
 		Visual = { bg = spec.selection }, -- Visual mode selection
 		VisualNOS = { link = "visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = spec.warn }, -- warning messages
@@ -137,7 +137,7 @@ M.setup = function(theme)
 		-- -- syntax
 		-- --
 		Comment = { fg = syn.comment.fg, italic = true }, -- any comment
-		Constant = { fg = syn.constant.fg }, -- (preferred) any constant
+		Constant = { fg = syn.language.fg, bg = syn.language.bg }, -- (preferred) any constant
 		String = { fg = syn.string.fg, bg = syn.string.bg }, -- a string constant: "this is a string"
 		Character = { link = "Comment" }, -- a character constant: 'c', '\n'
 		Number = { fg = syn.numeric.fg, bg = syn.numeric.bg }, -- a number constant: 234, 0xff
@@ -199,12 +199,12 @@ M.setup = function(theme)
 		-- --
 		-- Identifiers ------------------------------------------------------------
 		["@variable"] = { fg = syn.variable.fg }, -- various variable names
-		["@variable.builtin"] = { fg = syn.language.fg }, -- built-in variable names (e.g. `this`)
+		["@variable.builtin"] = { fg = spec.orange.fg, bg = spec.orange.bg }, -- built-in variable names (e.g. `this`)
 		["@variable.parameter"] = { fg = syn.variable.fg }, -- parameters of a function
 		["@variable.member"] = { fg = syn.method.fg }, -- object and struct fields
 
 		["@constant"] = { link = "Constant" }, -- constant identifiers
-		["@constant.builtin"] = { fg = syn.constant_keyword.fg, bg = syn.constant_keyword.bg }, -- built-in constant values
+		["@constant.builtin"] = { link = "Constant" }, -- built-in constant values
 		["@constant.macro"] = { link = "Macro" }, -- constants defined by the preprocessor
 
 		["@module"] = { fg = syn.import.fg }, -- modules or namespaces
@@ -217,7 +217,7 @@ M.setup = function(theme)
 		["@string.regexp"] = { link = "String" }, -- regular expressions
 		["@string.escape"] = { fg = syn.string.fg, bg = syn.string.bg, bold = true }, -- escape sequences
 		["@string.special"] = { link = "Special" }, -- other special strings (e.g. dates)
-		-- ["@string.special.symbol"] = { }, -- symbols or atoms
+		["@string.special.symbol"] = { fg = spec.blue.fg, bg = spec.blue.bg }, -- symbols or atoms
 		["@string.special.url"] = { fg = syn.string.fg, bg = syn.string.bg, italic = true, underline = true }, -- URIs (e.g. hyperlinks)
 		-- ["@string.special.path"] = { }, -- filenames
 
@@ -288,17 +288,17 @@ M.setup = function(theme)
 		["@markup.strikethrough"] = { strikethrough = true }, -- struck-through text
 		["@markup.underline"] = { link = "Underline" }, -- underlined text (only for literal underline markup!)
 
-		["@markup.heading"] = { link = "Title" }, -- headings, titles (including markers)
+		["@markup.heading"] = { fg = spec.purple.fg, bg = spec.purple.bg, bold = true }, -- headings, titles (including markers)
 
 		["@markup.quote"] = { link = "String" }, -- block quotes
 		["@markup.math"] = { link = "Number" }, -- math environments (e.g. `$ ... $` in LaTeX)
 		-- ["@markup.environment"] = { }, -- environments (e.g. in LaTeX)
 
-		["@markup.link"] = { fg = syn.keyword.fg, bold = true }, -- text references, footnotes, citations, etc.
-		["@markup.link.label"] = { link = "Special" }, -- link, reference descriptions
-		["@markup.link.url"] = { fg = syn.string.fg, bg = syn.string.bg, italic = true, underline = true }, -- URL-style links
+		["@markup.link"] = { fg = syn.constant_symbol.fg, bg = syn.constant_symbol.bg, underline = true }, -- text references, footnotes, citations, etc.
+		-- ["@markup.link.label"] = { link = "Special" }, -- link, reference descriptions
+		-- ["@markup.link.url"] = { fg = syn.string.fg, bg = syn.string.bg, italic = true, underline = true }, -- URL-style links
 
-		["@markup.raw"] = { fg = syn.variable.fg, italic = true }, -- literal or verbatim text (e.g. inline code)
+		["@markup.raw"] = { fg = syn.type.fg, bg = syn.type.bg }, -- literal or verbatim text (e.g. inline code)
 		["@markup.raw.block"] = { fg = syn.type.fg, bg = syn.type.bg }, -- literal or verbatim text as a stand-alone block (use priority 90 for blocks with injections)
 
 		["@markup.list"] = { fg = spec.sec.fg }, -- list markers
@@ -309,9 +309,9 @@ M.setup = function(theme)
 		["@diff.minus"] = { link = "diffRemoved" }, -- deleted text (for diff files)
 		["@diff.delta"] = { link = "diffChanged" }, -- changed text (for diff files)
 
-		["@tag"] = { fg = syn.constant_keyword.fg, bg = syn.constant_keyword.bg }, -- XML-style tag names (and similar)
-		["@tag.attribute"] = { fg = syn.constant_keyword.fg, bg = syn.constant_keyword.bg }, -- XML-style tag attributes
-		["@tag.delimiter"] = { fg = syn.constant_keyword.fg, bg = syn.constant_keyword.bg }, -- XML-style tag delimiters
+		["@tag"] = { fg = spec.purple.fg, bg = spec.purple.bg }, -- XML-style tag names (and similar)
+		["@tag.attribute"] = { fg = spec.sec.fg }, -- XML-style tag attributes
+		["@tag.delimiter"] = { fg = syn.attribute.fg }, -- XML-style tag delimiters
 
 		-- Misc -------------------------------------------------------------------
 		-- ["@none"] = { }, -- completely disable the highlight
