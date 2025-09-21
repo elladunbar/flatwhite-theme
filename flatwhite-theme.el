@@ -126,8 +126,7 @@
      `(diff-refine-file-header ((t (:foreground ,base1 :weight bold))))
      `(diff-refine-context ((t (:foreground ,base3))))
      `(diff-refine-hunk-header ((t (:foreground ,base3))))
-     `(diff-refine-unchanged ((t (:foreground ,base3))))
-     ))
+     `(diff-refine-unchanged ((t (:foreground ,base3)))))))
 
 (defun flatdark-set-faces (colors)
   "Set faces for flatdark theme using COLORS."
@@ -204,8 +203,7 @@
      `(diff-refine-file-header ((t (:foreground ,base1 :weight bold))))
      `(diff-refine-context ((t (:foreground ,base3))))
      `(diff-refine-hunk-header ((t (:foreground ,base3))))
-     `(diff-refine-unchanged ((t (:foreground ,base3))))
-     ))
+     `(diff-refine-unchanged ((t (:foreground ,base3)))))))
 
 (flatwhite-set-faces flatwhite-colors)
 (flatdark-set-faces flatdark-colors)
