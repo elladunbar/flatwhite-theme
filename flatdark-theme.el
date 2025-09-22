@@ -257,37 +257,37 @@
      `(term-color-white ((t (:foreground ,base1 :background ,base1)))))))
 
 
-;; Light theme
-(deftheme flatwhite "A clean, minimal light theme")
+;; Dark theme
+(deftheme flatdark "A clean, minimal dark theme")
 
 (flatwhite-theme-define
- 'flatwhite
- '(:base1 "#605a52"
-   :base2 "#93836c"
-   :base3 "#b9a992"
-   :base4 "#dcd3c6"
-   :base5 "#e4ddd2"
-   :base6 "#f1ece4"
-   :base7 "#f7f3ee"
-   :accent "#6a4dff"
-   :orange-text "#5b5143"
-   :orange-text-sec "#957f5f"
-   :orange-bg "#f7e0c3"
-   :green-text "#525643"
-   :green-text-sec "#81895d"
-   :green-bg "#e2e9c1"
-   :teal-text "#465953"
-   :teal-text-sec "#5f8c7d"
-   :teal-bg "#d2ebe3"
-   :blue-text "#4c5361"
-   :blue-text-sec "#7382a0"
-   :blue-bg "#dde4f2"
-   :purple-text "#614c61"
-   :purple-text-sec "#9c739c"
-   :purple-bg "#f1ddf1"))
+ 'flatdark
+ '(:base1 "#d7dce2"
+   :base2 "#aab4c0"
+   :base3 "#88919e"
+   :base4 "#4b5563"
+   :base5 "#374151"
+   :base6 "#1f2937"
+   :base7 "#111827"
+   :accent "#7c7fff"
+   :orange-text "#e0a96d"
+   :orange-text-sec "#f0c591"
+   :orange-bg "#5a4127"
+   :green-text "#9bd97c"
+   :green-text-sec "#b6e8a1"
+   :green-bg "#2e4632"
+   :teal-text "#6ed8c4"
+   :teal-text-sec "#94e7d8"
+   :teal-bg "#2a4543"
+   :blue-text "#7da6f5"
+   :blue-text-sec "#a7c4fa"
+   :blue-bg "#263b5a"
+   :purple-text "#b893f6"
+   :purple-text-sec "#d4b6fa"
+   :purple-bg "#3b2d4d"))
 
 (when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'flatwhite)
+(provide-theme 'flatdark)
