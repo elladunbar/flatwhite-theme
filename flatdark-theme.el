@@ -147,6 +147,31 @@
      `(company-scrollbar-fg ((t (:background ,base4))))
      `(company-scrollbar-bg ((t (:background ,base5))))
 
+     ;; Corfu (completion child frames)
+     `(corfu-default ((t (:foreground ,base1 :background ,base6))))
+     `(corfu-current ((t (:foreground ,base1 :background ,base5 :weight bold))))
+     `(corfu-bar ((t (:background ,base4))))
+     `(corfu-border ((t (:background ,base4))))
+     `(corfu-annotations ((t (:foreground ,base3 :slant italic))))
+     `(corfu-deprecated ((t (:foreground ,base3 :strike-through t))))
+     `(corfu-echo ((t (:foreground ,base2))))
+     `(corfu-popupinfo ((t (:foreground ,base1 :background ,base6))))
+
+     ;; Vertico (if used with Corfu)
+     `(vertico-current ((t (:foreground ,base1 :background ,base5 :weight bold))))
+     `(vertico-group-title ((t (:foreground ,accent :weight bold))))
+     `(vertico-group-separator ((t (:foreground ,base4 :strike-through t))))
+     `(vertico-multiline ((t (:foreground ,base2))))
+
+     ;; Orderless (often used with Corfu/Vertico)
+     `(orderless-match-face-0 ((t (:foreground ,accent :weight bold))))
+     `(orderless-match-face-1 ((t (:foreground ,blue-text :weight bold))))
+     `(orderless-match-face-2 ((t (:foreground ,green-text :weight bold))))
+     `(orderless-match-face-3 ((t (:foreground ,orange-text :weight bold))))
+
+     ;; Child frame border (important for Corfu)
+     `(child-frame-border ((t (:background ,base4))))
+
      ;; Org mode
      `(org-level-1 ((t (:foreground ,purple-text :background ,purple-bg :weight bold))))
      `(org-level-2 ((t (:foreground ,blue-text :weight bold))))
